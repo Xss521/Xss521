@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Mysql</title>
+      <link href="/2023/04/20/Mysql/"/>
+      <url>/2023/04/20/Mysql/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Mysql数据库"><a href="#Mysql数据库" class="headerlink" title="Mysql数据库"></a>Mysql数据库</h1><h2 id="DDL-数据定义语言"><a href="#DDL-数据定义语言" class="headerlink" title="DDL-数据定义语言"></a>DDL-数据定义语言</h2><h3 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h3><p><img src="/2023/04/20/Mysql/image-20230420112532062.png" alt="image-20230420112532062"></p><h3 id="操作数据库表"><a href="#操作数据库表" class="headerlink" title="操作数据库表"></a>操作数据库表</h3><p><img src="/2023/04/20/Mysql/image-20230420112623209.png" alt="image-20230420112623209"></p><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p><img src="/2023/04/20/Mysql/image-20230420112701375.png" alt="image-20230420112701375"></p><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol><li>字符串型</li></ol><p><img src="/2023/04/20/Mysql/image-20230420112944835.png" alt="image-20230420112944835"></p><ol start="2"><li>数值类型</li></ol><p><img src="/2023/04/20/Mysql/image-20230420113011125.png" alt="image-20230420113011125"></p><ol start="3"><li>日期类型</li></ol><p><img src="/2023/04/20/Mysql/image-20230420113123275.png" alt="image-20230420113123275"></p><h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><p><img src="/2023/04/20/Mysql/image-20230420113340883.png" alt="image-20230420113340883"></p><p><img src="/2023/04/20/Mysql/image-20230420113704275.png" alt="image-20230420113704275"></p><p><img src="/2023/04/20/Mysql/image-20230420113740337.png" alt="image-20230420113740337"></p><p><img src="/2023/04/20/Mysql/image-20230420113819468.png" alt="image-20230420113819468"></p><p><img src="/2023/04/20/Mysql/image-20230420113915067.png" alt="image-20230420113915067"></p><h2 id="DML-数据操作语言"><a href="#DML-数据操作语言" class="headerlink" title="DML-数据操作语言"></a>DML-数据操作语言</h2><h3 id="插入-INSERT"><a href="#插入-INSERT" class="headerlink" title="插入-INSERT"></a>插入-INSERT</h3><p><img src="/2023/04/20/Mysql/image-20230420114922379.png" alt="image-20230420114922379"></p><h3 id="修改-UPDATE"><a href="#修改-UPDATE" class="headerlink" title="修改-UPDATE"></a>修改-UPDATE</h3><p><img src="/2023/04/20/Mysql/image-20230420125424726.png" alt="image-20230420125424726"></p><p><img src="/2023/04/20/Mysql/image-20230420125515885.png" alt="image-20230420125515885"></p><h3 id="删除-DELETE"><a href="#删除-DELETE" class="headerlink" title="删除-DELETE"></a>删除-DELETE</h3><p><img src="/2023/04/20/Mysql/image-20230420125540949.png" alt="image-20230420125540949"></p><h2 id="DQL-数据查询语言"><a href="#DQL-数据查询语言" class="headerlink" title="DQL-数据查询语言"></a>DQL-数据查询语言</h2><p><img src="/2023/04/20/Mysql/image-20230420125855896.png" alt="image-20230420125855896"></p><p><img src="/2023/04/20/Mysql/image-20230420130040208.png" alt="image-20230420130040208"></p><h3 id="DQL-基本查询"><a href="#DQL-基本查询" class="headerlink" title="DQL-基本查询"></a>DQL-基本查询</h3><p><img src="/2023/04/20/Mysql/image-20230420130706783.png" alt="image-20230420130706783"></p><h3 id="DQL-条件查询"><a href="#DQL-条件查询" class="headerlink" title="DQL-条件查询"></a>DQL-条件查询</h3><p><img src="/2023/04/20/Mysql/image-20230420131305349.png" alt="image-20230420131305349"></p><h3 id="DQL-分组查询"><a href="#DQL-分组查询" class="headerlink" title="DQL-分组查询"></a>DQL-分组查询</h3><ul><li><p>DQL-聚合函数</p><p><img src="/2023/04/20/Mysql/image-20230420131429197.png" alt="image-20230420131429197"></p></li><li><p>DQL-分组查询</p><p><img src="/2023/04/20/Mysql/image-20230420132127662.png" alt="image-20230420132127662"></p></li></ul><h3 id="DQL-排序查询"><a href="#DQL-排序查询" class="headerlink" title="DQL-排序查询"></a>DQL-排序查询</h3><p><img src="/2023/04/20/Mysql/image-20230420132327580.png" alt="image-20230420132327580"></p><h3 id="DQL-分页查询"><a href="#DQL-分页查询" class="headerlink" title="DQL-分页查询"></a>DQL-分页查询</h3><p><img src="/2023/04/20/Mysql/image-20230420132436172.png" alt="image-20230420132436172"></p><h3 id="DQL-执行顺序"><a href="#DQL-执行顺序" class="headerlink" title="DQL-执行顺序"></a>DQL-执行顺序</h3><p><img src="/2023/04/20/Mysql/image-20230420132809434.png" alt="image-20230420132809434"></p><h3 id="DCL-数据控制语言"><a href="#DCL-数据控制语言" class="headerlink" title="DCL-数据控制语言"></a>DCL-数据控制语言</h3><blockquote><p>主要管理数据库的数据访问权限，管理数据库的用户</p></blockquote><h4 id="DCL-管理用户"><a href="#DCL-管理用户" class="headerlink" title="DCL-管理用户"></a>DCL-管理用户</h4><p><img src="/2023/04/20/Mysql/image-20230420154739018.png" alt="image-20230420154739018"></p><p><strong>创建一个用户在任何主机可以访问，可以将@localhost换成@%</strong></p><h4 id="DCL-权限控制"><a href="#DCL-权限控制" class="headerlink" title="DCL-权限控制"></a>DCL-权限控制</h4><p><img src="/2023/04/20/Mysql/image-20230420155750782.png" alt="image-20230420155750782"></p><p><img src="/2023/04/20/Mysql/image-20230420155953544.png" alt="image-20230420155953544"></p><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><p><img src="/2023/04/20/Mysql/image-20230420161812977.png" alt="image-20230420161812977"></p><h3 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h3><p><img src="/2023/04/20/Mysql/image-20230420174351395.png" alt="image-20230420174351395"></p><h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><p><img src="/2023/04/20/Mysql/image-20230420191808256.png" alt="image-20230420191808256"></p><p>注：DATE_ADD()方法</p><p>INTERVAL 是固定的，expr时间隔多少，type时间隔类型</p><h3 id="流程函数"><a href="#流程函数" class="headerlink" title="流程函数"></a>流程函数</h3><p><img src="/2023/04/20/Mysql/image-20230420192731682.png" alt="image-20230420192731682"></p><p><img src="/2023/04/20/Mysql/image-20230420193824981.png" alt="image-20230420193824981"></p><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ol><li><p>概念：约束时作用于表中字段上的规则，用于限制存储在表中的数据</p></li><li><p>目的：保证数据库中数据的正确、有效和完整性</p></li><li><p>分类</p><p><img src="/2023/04/20/Mysql/image-20230420194344714.png" alt="image-20230420194344714"></p></li></ol><blockquote><p>示例</p></blockquote><p>​            <img src="/2023/04/20/Mysql/image-20230420195201725.png" alt="image-20230420195201725"></p><h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><ul><li>概念：外键是让两张表的数据之间建立联系，从而保证数据的一致性和完整性</li></ul><p><img src="/2023/04/20/Mysql/image-20230420195716614.png" alt="image-20230420195716614"></p><ul><li><p>语法</p><p>添加外键</p><p><img src="/2023/04/20/Mysql/image-20230420195935208.png" alt="image-20230420195935208"></p><p><img src="/2023/04/20/Mysql/image-20230420200527264.png" alt="image-20230420200527264"></p><p>删除和更新行为</p><p><img src="/2023/04/20/Mysql/image-20230420200843026.png" alt="image-20230420200843026"></p><p>设置行为</p><p><img src="/2023/04/20/Mysql/image-20230420201017834.png" alt="image-20230420201017834"></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Swagger</title>
       <link href="/2023/04/19/Swagger/"/>
       <url>/2023/04/19/Swagger/</url>
@@ -157,14 +182,14 @@
       
       <categories>
           
-          <category> java </category>
+          <category> 数据库 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 数据库 </tag>
+            <tag> NOSQL </tag>
             
         </tags>
       
