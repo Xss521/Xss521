@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySql进阶</title>
+      <link href="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/"/>
+      <url>/2023/04/22/MySql%E8%BF%9B%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MySql进阶"><a href="#MySql进阶" class="headerlink" title="MySql进阶"></a>MySql进阶</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MySql体系结构"><a href="#MySql体系结构" class="headerlink" title="MySql体系结构"></a>MySql体系结构</h3><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422211947519.png" alt="image-20230422211947519"></p><p>InnoDB是Mysql5.5以后默认的存储引擎</p><h3 id="创建表的时候可以指定存储引擎"><a href="#创建表的时候可以指定存储引擎" class="headerlink" title="创建表的时候可以指定存储引擎"></a>创建表的时候可以指定存储引擎</h3><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422212613696.png" alt="image-20230422212613696"></p><blockquote><p>查询当前数据库支持的引擎</p></blockquote><blockquote><p><strong>show engines;</strong></p></blockquote><h2 id="InnoDB存储引擎"><a href="#InnoDB存储引擎" class="headerlink" title="InnoDB存储引擎"></a>InnoDB存储引擎</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422213236299.png" alt="image-20230422213236299"></p><h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422213858445.png" alt="image-20230422213858445"></p><h2 id="MyISAM存储引擎"><a href="#MyISAM存储引擎" class="headerlink" title="MyISAM存储引擎"></a>MyISAM存储引擎</h2><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422214210823.png" alt="image-20230422214210823"></p><h2 id="Memory存储引擎"><a href="#Memory存储引擎" class="headerlink" title="Memory存储引擎"></a>Memory存储引擎</h2><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422214318474.png" alt="image-20230422214318474"></p><h2 id="存储引擎的特点"><a href="#存储引擎的特点" class="headerlink" title="存储引擎的特点"></a>存储引擎的特点</h2><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422214438313.png" alt="image-20230422214438313"></p><p><img src="/2023/04/22/MySql%E8%BF%9B%E9%98%B6/image-20230422214701049.png" alt="image-20230422214701049"></p><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>相交链表</title>
       <link href="/2023/04/21/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/"/>
       <url>/2023/04/21/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</url>
@@ -63,7 +88,7 @@
       
       <categories>
           
-          <category> MySql数据库基础 </category>
+          <category> 数据库 </category>
           
       </categories>
       
