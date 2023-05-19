@@ -11,6 +11,18 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
       
     </entry>
     
@@ -26,14 +38,14 @@
       
       <categories>
           
-          <category> JWT令牌 </category>
+          <category> 工具 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Utils </tag>
+            <tag> JWT </tag>
             
         </tags>
       
@@ -76,10 +88,16 @@
       
       <categories>
           
-          <category> Utils </category>
+          <category> 工具 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Swagger </tag>
+            
+        </tags>
       
     </entry>
     
@@ -220,7 +238,7 @@
       
       <categories>
           
-          <category> Linux </category>
+          <category> 工具 </category>
           
       </categories>
       
@@ -240,7 +258,7 @@
       <link href="/2022/05/05/springmvc%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/"/>
       <url>/2022/05/05/springmvc%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<h1 id="springmvc执行流程"><a href="#springmvc执行流程" class="headerlink" title="springmvc执行流程"></a>springmvc执行流程</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MVC：是一种架构模式，将业务逻辑和页面展示分离，使程序分层、分工合作，既相互独立，又协同合作。</p><p>MVC是模型(Model)、视图(View)、控制器(Controller)的简写，是一种软件设计规范。</p><p>Model（模型）：数据模型，提供要展示的数据，因此包含数据和行为，可以认为是领域模型或 JavaBean组件，不过现在一般都分离开来：Value Object（数据Dao） 和 服务层（行为Service）。也就是模型提供了模型数据查询和模型数据的状态更新等功能，包括数据和业务。</p><p>View（视图）：负责进行模型的展示，将逻辑视图解析成物理视图并渲染。</p><p>Controller（控制器）：接收用户请求，委托给模型进行处理，处理完毕后把返回的模型数据返回给视图，由视图负责展示。起调度作用。</p><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="/image-20230504131019564.png" alt="image-20230504131019564"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="springmvc执行流程"><a href="#springmvc执行流程" class="headerlink" title="springmvc执行流程"></a>springmvc执行流程</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MVC：是一种架构模式，将业务逻辑和页面展示分离，使程序分层、分工合作，既相互独立，又协同合作。</p><p>MVC是模型(Model)、视图(View)、控制器(Controller)的简写，是一种软件设计规范。</p><p>Model（模型）：数据模型，提供要展示的数据，因此包含数据和行为，可以认为是领域模型或 JavaBean组件，不过现在一般都分离开来：Value Object（数据Dao） 和 服务层（行为Service）。也就是模型提供了模型数据查询和模型数据的状态更新等功能，包括数据和业务。</p><p>View（视图）：负责进行模型的展示，将逻辑视图解析成物理视图并渲染。</p><p>Controller（控制器）：接收用户请求，委托给模型进行处理，处理完毕后把返回的模型数据返回给视图，由视图负责展示。起调度作用。</p><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="/2022/05/05/springmvc%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/image-20230504131019564.png" alt="image-20230504131019564"></p>]]></content>
       
       
       <categories>
