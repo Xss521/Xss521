@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Redis</title>
+      <link href="/2023/05/25/Redis/"/>
+      <url>/2023/05/25/Redis/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>Spring data Redis</p><h2 id="yml文件"><a href="#yml文件" class="headerlink" title="yml文件"></a>yml文件</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">redis:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">82.157</span><span class="number">.245</span><span class="number">.249</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">lettuce:</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">max-active:</span> <span class="number">10</span></span><br><span class="line">        <span class="attr">max-idle:</span> <span class="number">10</span></span><br><span class="line">        <span class="attr">min-idle:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">time-between-eviction-runs:</span> <span class="string">10s</span></span><br></pre></td></tr></table></figure><h2 id="RedisTemplate"><a href="#RedisTemplate" class="headerlink" title="RedisTemplate"></a>RedisTemplate</h2><p>修改序列化器，防止出现一些问题</p><p><img src="/2023/05/25/Redis/image-20230525100038187.png" alt="image-20230525100038187"></p><p>使用<strong>Json</strong>序列化器，会将类的全限定名写进<strong>redis</strong></p><p><img src="/2023/05/25/Redis/image-20230525155846580.png" alt="image-20230525155846580"></p><p>​    为了节省空间，我们并不会使用JSON序列化器来处理value，二十使用统一的String序列化器，要求只能存储String类型的Key和Value。当需要存储java对象时，手动完成对象序列化和反序列化</p><h2 id="StringRedisTemplate"><a href="#StringRedisTemplate" class="headerlink" title="StringRedisTemplate"></a>StringRedisTemplate</h2><p><strong>使用StringRedisTemplate，它的Key和Value序列化方式默认使用String序列化器</strong></p><h2 id="缓存更新策略"><a href="#缓存更新策略" class="headerlink" title="缓存更新策略"></a>缓存更新策略</h2><ol><li><p>低一致性需求：使用Redis自带的内存淘汰策略</p></li><li><p>高一致性需求：主动更新，并以超时剔除作为兜底方案</p><ul><li><p>读操作：</p><p>缓存命中直接返回</p><p>缓存未命中，查询数据库，并且设置超时时间</p></li><li><p>写操作：</p><p>先写数据库，然后删除缓存</p><p>要确保数据库与缓存操作的原子性</p></li></ul></li></ol><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p><strong>缓存穿透</strong>是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远不会生效，这些请求全会打到数据库上。</p><img src="image-20230525202150598.png" alt="image-20230525202150598" style="zoom:67%;" /><p>常见的解决方案由两种：</p><ul><li><strong>缓存空对象：</strong><ul><li>优点：实现简单，方便维护</li><li>缺点：<ul><li>额外的内存消耗</li><li>可能造成短时间的不一致</li></ul></li></ul></li><li>布隆过滤<ul><li>优点：内存占用少，没有多余key</li><li>缺点：<ul><li>实现起来复杂</li><li>存在误判可能</li></ul></li></ul></li></ul><p>​    </p><h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p><strong>缓存雪崩</strong>是指在同一段时间大量的Key同时失效或者Redis服务宕机，导致大量请求到达数据库，给数据库带来大量压力</p><img src="image-20230525204103808.png" alt="image-20230525204103808" style="zoom:67%;" /><p><strong>解决方案：</strong></p><ul><li>给不同Key的<strong>TTL</strong>添加随机值</li><li>利用redis集群提高服务可用性</li><li>给缓存业务添加降级限流策略</li><li>给业务添加多级缓存</li></ul><h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>​    <strong>缓存击穿</strong>问题也叫做<strong>热点Key</strong>问题，就是一个<strong>高并发访问</strong>且<strong>缓存重建业务比较复杂的Key</strong>突然失效了，无数的请求访问到数据库，给数据库带来巨大的压力</p><img src="image-20230525205134061.png" alt="image-20230525205134061" style="zoom:67%;" /><p><strong>解决方案：</strong></p><ul><li>互斥锁<ul><li>优点<ul><li>没有额外内存消耗</li><li>保持一致性</li><li>实现简单</li></ul></li><li>缺点<ul><li>线程等待，性能降低</li><li>可能有死锁风险</li></ul></li></ul></li><li>逻辑过期<ul><li>优点：线程无需等待，性能较好</li><li>缺点<ul><li>不保证一致性</li><li>有额外内存消耗</li><li>实现复杂</li></ul></li></ul></li></ul><img src="image-20230525205757501.png" alt="image-20230525205757501" style="zoom: 60%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NOSQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单例模式</title>
       <link href="/2023/05/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
       <url>/2023/05/25/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
