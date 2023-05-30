@@ -191,7 +191,7 @@ if (true) {
 <li>代理（Proxy）类 ： 提供了与真实主题相同的接口，其内部含有对真实主题的引用，它可以访问、控制或扩展真实主题的功能。</li>
 </ul>
 <h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>现在使用一个案例来说明一下，代理的实现，例如火车站卖票，中间有黄牛卖票的例子</p>
-<p><img src="/image-20230530104114889.png" alt="image-20230530104114889"></p>
+<p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530104114889.png" alt="image-20230530104114889"></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">SellTicket</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">sell</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -204,13 +204,13 @@ if (true) {
 
 
 
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="/image-20230530104240917.png" alt="image-20230530104240917"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530104240917.png" alt="image-20230530104240917"></p>
 <h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>使用JDK提供的java.lang.reflect包下面<strong>Proxy</strong>类，该类提供了一个 <strong>newInstance( )</strong> 方法</p>
 <p>该方法需要三个参数，类加载器，接口的类信息，和一个InvocationHandler的匿名内部类</p>
-<p><img src="/image-20230530104535380.png" alt="image-20230530104535380"></p>
+<p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530104535380.png" alt="image-20230530104535380"></p>
 <p>实现这个匿名内部类需要重写这个类的方法</p>
 <p>proxy就是返回的Instance实例对象，Method是被代理类对象的方法，args是该方法的参数</p>
-<p><img src="/image-20230530104726202.png" alt="image-20230530104726202"></p>
+<p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530104726202.png" alt="image-20230530104726202"></p>
 <p><strong>验证</strong></p>
 <img src="image-20230530104946374.png" alt="image-20230530104946374" style="zoom:67%;" />
 
@@ -231,7 +231,7 @@ if (true) {
 
 
 
-<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><p><img src="/image-20230530105232361.png" alt="image-20230530105232361"></p>
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530105232361.png" alt="image-20230530105232361"></p>
 <h2 id="CGLIB代理"><a href="#CGLIB代理" class="headerlink" title="CGLIB代理"></a>CGLIB代理</h2><p>CGLIB代理不需要有接口，在JDK动态代理，需要有一个接口，才能实现JDK动态代理</p>
 <p>CGLIB是一个功能强大，高性能的代码生成包。它为没有实现接口的类提供代理，为JDK的动态代理提供了很好的补充。</p>
 <p><strong>CGLIB坐标</strong></p>
@@ -248,7 +248,7 @@ if (true) {
 
 
 <p><strong>结果</strong></p>
-<p><img src="/image-20230530145652254.png" alt="image-20230530145652254"></p>
+<p><img src="/2023/05/30/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/image-20230530145652254.png" alt="image-20230530145652254"></p>
 <h2 id="三种代理的对比"><a href="#三种代理的对比" class="headerlink" title="三种代理的对比"></a>三种代理的对比</h2><ul>
 <li><p>jdk代理和CGLIB代理</p>
 <p>使用CGLib实现动态代理，CGLib底层采用ASM字节码生成框架，使用字节码技术生成代理类，在JDK1.6之前比使用Java反射效率要高。唯一需要注意的是，CGLib不能对声明为final的类或者方法进行代理，因为CGLib原理是动态生成被代理类的子类。</p>
