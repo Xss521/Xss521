@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>哲学家就餐</title>
+      <link href="/2023/06/12/%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90/"/>
+      <url>/2023/06/12/%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90/</url>
+      
+        <content type="html"><![CDATA[<p>2.4.2.2 活锁</p><p>活锁出现在两个线程互相改变对方的结束条件，最后谁也无法结束。</p><p>例如：</p><p>@Slf4j(topic = “LiveLock”)<br>public class LiveLockDemo {</p><pre><code>static volatile int count = 10;static final Object lock = new Object();public static void main(String[] args) &#123;    new Thread(() -&gt; &#123;        // 期望减到0，退出循环        while (count &gt; 0) &#123;            try &#123;                TimeUnit.MILLISECONDS.sleep(10);            &#125; catch (InterruptedException e) &#123;                e.printStackTrace();            &#125;            count--;            log.debug(&quot;count: &#123;&#125;&quot;, count);        &#125;    &#125;, &quot;t1&quot;).start();    new Thread(() -&gt; &#123;        // 期望超过20退出循环        while (count &lt; 20) &#123;            try &#123;                TimeUnit.MILLISECONDS.sleep(10);            &#125; catch (InterruptedException e) &#123;                e.printStackTrace();            &#125;            count++;            log.debug(&quot;count: &#123;&#125;&quot;, count);        &#125;    &#125;, &quot;t2&quot;).start();&#125;</code></pre><p>}</p><p>解决：在线程执行时，中途给予不同的间隔时间，让某个线程先结束即可。</p><p>死锁与活锁的区别：</p><p>● 死锁是因为线程互相持有对象想要的锁，并且都不释放，最后到时线程阻塞，停止运行的现象。<br>● 活锁是因为线程间修改了对方的结束条件，从而导致代码一直在运行，却一直运行不完的现象。</p><p>2.4.2.3 饥饿</p><p>某些线程因为优先级太低，始终得不到CPU调度执行，也不能够结束。</p><p>在使用顺序加锁时，可能会出现饥饿现象：</p><p>顺序加锁的解决方案：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JUC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ReentrantLock </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>迭代器模式</title>
       <link href="/2023/06/10/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
       <url>/2023/06/10/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
@@ -404,7 +429,7 @@
     
     
     <entry>
-      <title>JUC</title>
+      <title>锁</title>
       <link href="/2023/05/27/JUC/"/>
       <url>/2023/05/27/JUC/</url>
       
