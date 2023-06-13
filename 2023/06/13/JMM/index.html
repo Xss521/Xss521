@@ -210,7 +210,7 @@
 </code></pre>
 <p>​    Java内存模型规定<strong>所有的变量都存储在主内存</strong>中，包括实例变量，静态变量，但是不包括局部变量和方法参数。每个线程都有自己的工作内存，<strong>线程的工作内存保存了该线程用到的变量和主内存的副本拷贝，线程对变量的操作都在工作内存中进行</strong>。<strong>线程不能直接读写主内存中的变量</strong>。</p>
 <p>​    不同的线程之间也无法访问对方工作内存中的变量。线程之间变量值的传递均需要通过主内存来完成。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image-20230613145023764.png" alt="image-20230613145023764"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/image-20230613145023764.png" alt="image-20230613145023764"></p>
 <p><strong>注意：</strong>这里所说的主存和计算硬件主存相似，但是java的这片区域是虚拟机的一部分</p>
 <h2 id="JMM定义了什么"><a href="#JMM定义了什么" class="headerlink" title="JMM定义了什么"></a>JMM定义了什么</h2><p><strong>JMM</strong>围绕了三个特征建立起来的，分别是原子性、可见性、有序性，这三个特征是java并发的基础</p>
 <h2 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h2><p><strong>定义：</strong>原子性指的是一个操作是不可分割，不可中断的，一个线程在执行时不会被其他线程干扰。</p>
@@ -228,17 +228,17 @@
 <h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Thread.Day04;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> MR.XSS</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * ==========&gt; volatile 对共享变量可见性进行操作</span></span><br><span class="line"><span class="comment"> * 2023/6/13 9:31</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">static</span>  <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">while</span> (flag)&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;停止运行&quot;</span>);</span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>​        出现这种结果和java的内存模型有关当多次对一个变量进行读取的时候，java会将数据读取到高速缓存区，这样就会导致变量的不可见，当外部对该变量进行修改的时候，线程内部是无法看到的，导致了运行出现了死循环。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image-20230613120342207.png" alt="image-20230613120342207"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/image-20230613120342207.png" alt="image-20230613120342207"></p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
-<li>初始状态，t线程刚开始从主内存读取了run的值到工作内存。<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/1619419195372-98bb035f-6287-410f-97ed-31c9aa97b081.png" alt="img"></li>
+<li>初始状态，t线程刚开始从主内存读取了run的值到工作内存。<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/1619419195372-98bb035f-6287-410f-97ed-31c9aa97b081.png" alt="img"></li>
 </ol>
 <ol>
-<li><p>因为t线程要频繁地从主内存中读取run的值，JIT编译器会将run的值缓存至自己工作内存中的高速缓存中，减少对主存中run的访问，提高效率。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/1619419254276-7b23564b-7260-4b73-bc85-e6825b9b1e74.png" alt="img"></p>
+<li><p>因为t线程要频繁地从主内存中读取run的值，JIT编译器会将run的值缓存至自己工作内存中的高速缓存中，减少对主存中run的访问，提高效率。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/1619419254276-7b23564b-7260-4b73-bc85-e6825b9b1e74.png" alt="img"></p>
 </li>
 <li><p>1秒之后，main线程修改了run的值，并同步至主存，而t是从自己工作内存中的高速缓存中读取这个变量的值，结果永远是旧值。</p>
 </li>
 </ol>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/1619419267756-52706cee-b49a-432a-8720-0fbdef96e3f4.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/1619419267756-52706cee-b49a-432a-8720-0fbdef96e3f4.png" alt="img"></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
 <li>使用<strong>volatile</strong>关键字可以时共享变量保持可见性</li>
 </ul>
@@ -247,7 +247,7 @@
 <ul>
 <li>使用synchronized同步，同样也可以维持正常</li>
 </ul>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image-20230613121619873.png" alt="image-20230613121619873"></p>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/13/JMM/image-20230613121619873.png" alt="image-20230613121619873"></p>
 <h3 id="synchronized和volatile对比"><a href="#synchronized和volatile对比" class="headerlink" title="synchronized和volatile对比"></a>synchronized和volatile对比</h3><ul>
 <li><p><code>synchronized</code>用于修饰方法或者代码块，<code>volatile</code>只能修饰变量。</p>
 </li>
