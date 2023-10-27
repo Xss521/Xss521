@@ -41,29 +41,6 @@
 
 <div align="center" >
 
-```mermaid
-mindmap
-  root((MR.XSS))
-    编程
-      JAVA开发
-      Netty
-      分布式
-    摄影
-      风光
-    旅行
-      呼伦贝尔
-      呼和浩特
-      通辽
-      沈阳
-      六安
-      滁州
-      合肥
-    阅读
-      人物传记
-      个人成长
-      社会文化
-      计算机技术
-```
 
 <!-- just img 图片 -->
 <img src="https://cdn.jsdelivr.net/gh/Xss521/Xss521/assets/images/man.png" alt="Man Lifting Weights" width="250" height="250" />
@@ -109,25 +86,4 @@ mindmap
 <!-- just img 图片 -->
 <img src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/icon.png" /></div><img width="200%" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/hr.gif" />
 
-<div align="center">
 
-<!-- run 图片 -->
-<img src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/man_run.png" alt="Man Running" width="250" height="250" />
-
-
-
-
-
-
-
-<!-- ########################################## 分割 ########################################## -->
-<img width="200%" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/hr.gif" />
-
-<!-- GitHub metrics 信息指标 -->
-<div align="center">
-<!-- just img 图片 -->
-<img width="36%" src="https://cdn.jsdelivr.net/gh/Xss521/Xss521/assets/images/githubgif.gif" />
-
-<!-- just img 图片 -->
-<img src="https://cdn.jsdelivr.net/gh/Xss521/Xss521/assets/images/rocket.png"/>
-</div>
